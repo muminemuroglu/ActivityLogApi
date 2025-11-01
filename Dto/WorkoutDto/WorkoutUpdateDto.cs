@@ -1,0 +1,23 @@
+using System.ComponentModel.DataAnnotations;
+
+namespace ActivityLogApi.Dto.WorkoutDto
+{
+   
+
+    public class WorkoutUpdateDto
+    {
+        [Required]
+        [StringLength(100, MinimumLength = 2)]
+        public string WorkoutName { get; set; }
+
+        [Required]
+        [Range(1, 720)]
+        public int Duration { get; set; }
+
+        [Required]
+        public DateTime Date { get; set; }
+
+        [Range(0, 10000)]
+        public int CaloriesBurned { get; set; }
+    }
+}

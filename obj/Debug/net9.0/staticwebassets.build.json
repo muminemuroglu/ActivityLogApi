@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "IYyDFdSpK0gU8f5QxdVGAQcwv2FZILVvFVjtWwo+zWs=",
+  "Source": "ActivityLogApi",
+  "BasePath": "_content/ActivityLogApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
