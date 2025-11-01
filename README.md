@@ -143,11 +143,11 @@ Swagger arayüzünde JWT token girilerek kimlik doğrulaması yapılabilir.
 `POST /api/user/login`
 
 ### 3️⃣ Workout Ekle  
-`POST /api/workouts`  
+`POST /api/workout`  
 > Header: `Authorization: Bearer <token>`
 
 ### 4️⃣ Goal Güncelle  
-`PUT /api/goals/{id}`
+`PUT /api/goal/{id}`
 
 ---
 
@@ -229,9 +229,40 @@ ActivityLogAPI/
 
 ## 📸 Görseller
 
-*(Swagger ekran görüntüsü, veritabanı şeması veya Postman test sonuçları buraya eklenebilir.)*
+
+<img width="1692" height="955" alt="Ekran Resmi 2025-11-02 00 55 50" src="https://github.com/user-attachments/assets/71c31f51-73f8-4d29-8273-719c2b1e86bc" />
 
 ---
+
+<img width="1650" height="1036" alt="Ekran Resmi 2025-11-02 01 08 28" src="https://github.com/user-attachments/assets/729b08e5-670a-448b-a7e3-31a9b7e09179" />
+
+---
+<img width="1619" height="969" alt="Ekran Resmi 2025-11-02 01 11 10" src="https://github.com/user-attachments/assets/238ee0a2-7760-4ef8-a6e0-731465d7fb84" />
+
+---
+
+<img width="1289" height="947" alt="Ekran Resmi 2025-11-02 01 13 21" src="https://github.com/user-attachments/assets/7b5be061-9cb2-47a6-9ea8-1d9df8f405e6" />
+
+---
+
+<img width="1614" height="866" alt="Ekran Resmi 2025-11-02 01 14 21" src="https://github.com/user-attachments/assets/d4e3df2f-2535-49bf-86de-3d1f3207c935" />
+
+---
+
+<img width="1693" height="971" alt="Ekran Resmi 2025-11-02 01 22 15" src="https://github.com/user-attachments/assets/753a2435-94ce-4fa9-a527-59b6385e385f" />
+
+---
+
+<img width="1710" height="1026" alt="Ekran Resmi 2025-11-02 01 24 51" src="https://github.com/user-attachments/assets/3f7ba5ae-a523-4dbd-b831-13a3d83e6256" />
+
+---
+<img width="1708" height="1085" alt="Ekran Resmi 2025-11-02 01 26 12" src="https://github.com/user-attachments/assets/e5774776-2ee9-4cdb-98b5-1d1786313a4f" />
+
+---
+
+
+
+
 
 ## 🧱 Lisans
 
