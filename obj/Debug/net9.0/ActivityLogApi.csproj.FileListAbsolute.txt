@@ -166,3 +166,4 @@
 /Users/muminemuroglu/Documents/ActivityLogApi/ActivityLogApi/obj/Debug/net9.0/ActivityLogApi.pdb
 /Users/muminemuroglu/Documents/ActivityLogApi/ActivityLogApi/obj/Debug/net9.0/ActivityLogApi.genruntimeconfig.cache
 /Users/muminemuroglu/Documents/ActivityLogApi/ActivityLogApi/obj/Debug/net9.0/ref/ActivityLogApi.dll
+/Users/muminemuroglu/Documents/ActivityLogApi/ActivityLogApi/obj/Debug/net9.0/ActivityLogApi.sourcelink.json

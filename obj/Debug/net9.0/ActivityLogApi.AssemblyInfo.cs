@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ActivityLogApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+adf85157a2c6a006b1ea2c0f57c1895073540cc4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d40c97685dbf515ef9a3c401f44be2fdaaf25db8")]
 [assembly: System.Reflection.AssemblyProductAttribute("ActivityLogApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ActivityLogApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

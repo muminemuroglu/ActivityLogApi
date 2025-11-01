@@ -11,8 +11,12 @@ namespace ActivityLogApi.Dto.WorkoutDto
         public string WorkoutName { get; set; }
 
         [Required]
+        [StringLength(300, MinimumLength = 5)]
+        public string? Description { get; set; }
+
+        [Required]
         [Range(1, 720)]
-        public int Duration { get; set; }
+        public int DurationMinute { get; set; }
 
         [Required]
         public DateTime Date { get; set; }

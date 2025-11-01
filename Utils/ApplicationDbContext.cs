@@ -9,7 +9,8 @@ namespace ActivityLogApi.Utils
             : base(options)
         {
         }
-        public DbSet<User> Users { get; set; }//DBset veritabanındaki tabloları ifade eder.
+        //DBset veritabanındaki tabloları ifade eder.
+        public DbSet<User> Users { get; set; }
         public DbSet<Workout> Workouts { get; set; }
         public DbSet<Goal> Goals { get; set; }
         

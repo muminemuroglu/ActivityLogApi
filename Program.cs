@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSwaggerWithJwt();
 
 // DbContext
-builder.Services.AddDbContext<ApplicationDbContext>(option => // burada injection yöntemi ile dbcontexti kullanıma açıyoruz
+builder.Services.AddDbContext<ApplicationDbContext>(option => 
 {
     var path = builder.Configuration.GetConnectionString("DefaultConnection");
     option.UseSqlite(path);
@@ -20,8 +20,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(option => // burada injectio
 // JWT Authentication
 builder.Services.AddJwtAuthentication(builder.Configuration);
 
-// Scoped Services --> sayesinde uygulama boyunca tek bir instance oluşturulur ve istek bazında kullanılır. bu işlem injection yöntemi ile yapılır
+// Scoped Services 
 builder.Services.AddScoped<UserService>();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<WorkoutService>();
+builder.Services.AddScoped<GoalService>();
 
 
 // AutoMapper
@@ -33,7 +36,6 @@ builder.Services.AddControllers();
 var app = builder.Build();
 
 // Swagger UI Active 
-
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -45,10 +47,11 @@ if (app.Environment.IsDevelopment())
 }
 
 // Middleware
-app.UseHttpsRedirection(); //uygulama yayına alındığında aktif edilebilir 
+//app.UseHttpsRedirection(); //uygulama yayına alındığında aktif edilebilir 
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseMiddleware<GlobalExceptionHandler>();  // genel hata yönetimi sağlayan middleware
 
+//Global Exception
+app.UseMiddleware<GlobalExceptionHandler>();  
 app.MapControllers();
 app.Run();

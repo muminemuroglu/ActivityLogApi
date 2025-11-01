@@ -26,6 +26,9 @@ namespace ActivityLogApi.Migrations
                     b.Property<double>("CurrentValue")
                         .HasColumnType("REAL");
 
+                    b.Property<string>("Detail")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTimeOffset>("EndDate")
                         .HasColumnType("TEXT");
 

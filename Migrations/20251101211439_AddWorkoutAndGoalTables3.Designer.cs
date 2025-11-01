@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ActivityLogApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251101064318_AddWorkoutAndGoalTables")]
-    partial class AddWorkoutAndGoalTables
+    [Migration("20251101211439_AddWorkoutAndGoalTables3")]
+    partial class AddWorkoutAndGoalTables3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -22,12 +22,15 @@ namespace ActivityLogApi.Migrations
 
             modelBuilder.Entity("ActivityLogApi.Models.Goal", b =>
                 {
-                    b.Property<int>("Gid")
+                    b.Property<long>("GId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<double>("CurrentValue")
                         .HasColumnType("REAL");
+
+                    b.Property<string>("Detail")
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTimeOffset>("EndDate")
                         .HasColumnType("TEXT");
@@ -36,21 +39,21 @@ namespace ActivityLogApi.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("IsCompleted")
+                        .HasColumnType("INTEGER");
+
                     b.Property<DateTimeOffset>("StartDate")
                         .HasColumnType("TEXT");
 
                     b.Property<double>("TargetValue")
                         .HasColumnType("REAL");
 
-                    b.Property<int>("UserId")
+                    b.Property<long>("UserId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<long>("UserId1")
-                        .HasColumnType("INTEGER");
+                    b.HasKey("GId");
 
-                    b.HasKey("Gid");
-
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Goals");
                 });
@@ -94,8 +97,11 @@ namespace ActivityLogApi.Migrations
 
             modelBuilder.Entity("ActivityLogApi.Models.Workout", b =>
                 {
-                    b.Property<int>("Wid")
+                    b.Property<long>("WId")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CaloriesBurned")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTimeOffset>("CreatedAt")
@@ -108,22 +114,16 @@ namespace ActivityLogApi.Migrations
                     b.Property<int>("DurationMinute")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<long>("UserId1")
+                    b.Property<long>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("WorkoutName")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Wid");
+                    b.HasKey("WId");
 
-                    b.HasIndex("UserId1");
-
-                    b.HasIndex("WorkoutName")
-                        .IsUnique();
+                    b.HasIndex("UserId");
 
                     b.ToTable("Workouts");
                 });
@@ -132,7 +132,7 @@ namespace ActivityLogApi.Migrations
                 {
                     b.HasOne("ActivityLogApi.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId1")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -143,7 +143,7 @@ namespace ActivityLogApi.Migrations
                 {
                     b.HasOne("ActivityLogApi.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId1")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

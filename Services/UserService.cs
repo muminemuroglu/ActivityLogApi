@@ -47,16 +47,17 @@ namespace ActivityLogApi.Services
                     //Jwt Generator
                     var tokenHandler = new JwtSecurityTokenHandler();
                     var jwtKey = _iConfiguration.GetValue<string>("Jwt:Key") ?? "";
-                    double ExpiresTime = 1;//1 saat hayatta kalacak
+                    double ExpiresTime = 1;
                     var key = Encoding.ASCII.GetBytes(jwtKey);//buradan bir byte dizisi elde edeceğiz
                     var tokenDesc = new SecurityTokenDescriptor
                     {
-                        //Bir jwt üretilecek subject(konusunda)bu kişinin adı yer alacak
+                        //Bir jwt üretilecek subject(konusunda)bu kişinin adı ve ıd'si yer alacak
                         //Claims: yetkiyi alacak olan kişi
                         Subject = new ClaimsIdentity(new Claim[]
-                        {
-                            new Claim(ClaimTypes.Name, existingUser.Email)//Adının tasarlandığı yer bizim gönderdiğimiz email olacak
-                        }),
+                            {
+                                new Claim(ClaimTypes.NameIdentifier, existingUser.Id.ToString()),  
+                                new Claim(ClaimTypes.Name, existingUser.Email)
+                            }),
                         Expires = DateTime.UtcNow.AddHours(ExpiresTime),
                         SigningCredentials = new SigningCredentials(
                             new SymmetricSecurityKey(key),
@@ -76,8 +77,7 @@ namespace ActivityLogApi.Services
         }
 
         //Birden fazla rolü ayrıştırmak için bu fonksiyonu yazdık
-        // Claim' a email i atadığımız gibi rol içinde bir claim oluşturacağız.Oluşturulacak olan jwt ye bunu yedireceğiz.Yedirmezsek rol bilgisi sadece veri tabanında kalır,başka hiç bie işimize yaramaz.
-        private void ParseRole(string roles, SecurityTokenDescriptor tokenDescriptor)
+                private void ParseRole(string roles, SecurityTokenDescriptor tokenDescriptor)
         {
             var roleList = roles.Split(',').Select(r => r.Trim()).ToList(); // Rollerin listesi
             foreach (var role in roleList)
